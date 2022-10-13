@@ -1,47 +1,70 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: "Amatic SC", cursive;
+  font-weight: bolder;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
 }
 
+/* Main container */
 .container {
   align-items: center;
   text-align: center;
-  padding-top: 50px;
+  padding-top: 1rem;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
 }
 
+#msg {
+  width: 20vw;
+  height: 20vh;
+  align-items: center;
+  text-align: center;
+  font-weight: bolder;
+}
+
+/* Dialog box to write the message */
 #cipher-box {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding-top: 20px;
-  row-gap: 10px;
+  row-gap: 2rem;
 }
 
-#select {
-  width: 100px;
-  /* height: 0%; */
-  align-items: center;
-  text-align: center;
-}
-
+/* Input to key number */
 #input-key {
-  width: 100px;
-  height: 8%;
   align-items: center;
   text-align: center;
+  font-weight: bolder;
 }
 
-#msg {
-  width: 50%;
-  height: 50%;
-}
-
+/* Result box */
 #output {
   align-items: center;
   text-align: center;
-  width: 300px;
-  height: 100px;
+  width: 20vw;
+  height: 20vh;
   border: 1px solid rgb(22, 22, 23);
+  margin: auto;
+  background-color: white;
+}
+
+/* Buttons to encrypt and decrypt */
+button {
+  background-color: #f0e6ef;
+  color: black;
+  font-weight: bolder;
+}
+
+button:hover {
+  background-color: aquamarine;
 }

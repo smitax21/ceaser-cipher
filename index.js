@@ -34,53 +34,53 @@ const alphabets = [
 let newAphabet = "";
 
 // ----------Encrypting the code-------------------------
-encode.addEventListener("click", () => {
-  const msg = document.querySelector("#msg");
-  const keyNum = Number(key.value);
-  let output = document.getElementById("output");
 
-  for (let letter of msg.value) {
-    letter = letter.toLowerCase();
-    if (!alphabets.includes(letter)) {
-      continue;
+function Encryption() {
+  encode.addEventListener("click", () => {
+    const msg = document.querySelector("#msg").value;
+    const keyNum = Number(key.value);
+    const output = document.getElementById("output");
+
+    for (let letter of msg) {
+      letter = letter.toLowerCase();
+      if (!alphabets.includes(letter)) {
+        alert("Type letters or a sentence to encrypt");
+        break;
+      }
+
+      let indexAlpha = alphabets.findIndex((i) => i === letter);
+      let newIndexApha = indexAlpha + keyNum;
+
+      newAphabet += alphabets[newIndexApha];
+      output.innerHTML = newAphabet;
     }
-
-    let indexAlpha = alphabets.findIndex((i) => i === letter);
-    let newIndexApha = indexAlpha + keyNum;
-
-    if (newIndexApha > 25) {
-      newIndexApha -= 26;
-    }
-
-    newAphabet += alphabets[newIndexApha];
-    // msg.value = newAphabet;
-    output.innerHTML = newAphabet;
-  }
-  newAphabet = "";
-});
+    newAphabet = "";
+  });
+}
 
 // -------------Decryption----------------
-decode.addEventListener("click", () => {
-  const msg = document.getElementById("msg");
-  const keyNum = Number(key.value);
-  let output = document.getElementById("output");
+function Decryption() {
+  decode.addEventListener("click", () => {
+    const msg = document.getElementById("msg");
+    const keyNum = Number(key.value);
+    const output = document.getElementById("output");
 
-  for (let letter of msg.value) {
-    letter = letter.toLowerCase();
-    if (!alphabets.includes(letter)) {
-      continue;
+    for (let letter of msg.value) {
+      letter = letter.toLowerCase();
+      if (!alphabets.includes(letter)) {
+        alert("Type letters or a sentence to decrypt");
+        break;
+      }
+
+      let indexAlpha = alphabets.findIndex((i) => i === letter);
+      let newIndexApha = indexAlpha - keyNum;
+
+      newAphabet += alphabets[newIndexApha];
+      output.innerHTML = newAphabet;
     }
+    newAphabet = "";
+  });
+}
 
-    let indexAlpha = alphabets.findIndex((i) => i === letter);
-    let newIndexApha = indexAlpha - keyNum;
-
-    if (newIndexApha < 0) {
-      newIndexApha += 26;
-    }
-
-    newAphabet += alphabets[newIndexApha];
-    // msg.value = newAphabet;
-    output.innerHTML = newAphabet;
-  }
-  newAphabet = "";
-});
+Encryption();
+Decryption();

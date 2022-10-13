@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <!-- Google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap"
+      rel="stylesheet"
+    />
     <!-- CSS only -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -19,23 +25,18 @@
   <body>
     <div class="container">
       <h1>Ceaser Cipher</h1>
-      <!-- <form action="" onsubmit="startConverting()"> -->
+      <!-- Container to input key number and message -->
       <div id="cipher-box">
         <div class="">
-          <input id="input-key" type="text" />
+          <input id="input-key" type="number" max="25" min="-25" />
         </div>
-        <textarea name="" id="msg"></textarea>
+        <textarea id="msg"></textarea>
       </div>
-      <!-- <select id="select" onchange="startConverting()">
-        <option id="encode" value="encode">Encode</option>
-        <option id="decode" value="decode">Decode</option>
-      </select> -->
-      <!-- <button type="submit">enter</button>
-      </form> -->
       <div>
-        <button id="encode">Encrypt</button>
-        <button id="decode">Decrypt</button>
+        <button id="encode" onsubmit="Encryption()">Encrypt</button>
+        <button id="decode" onsubmit="Decryption()">Decrypt</button>
       </div>
+      <!-- container to output result -->
       <div id="output"></div>
     </div>
 
